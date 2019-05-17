@@ -3,3 +3,5 @@
 ################################################################################
 
 /.vs/NeatExcel/v16
+/NeatExcel/bin/Debug
+/NeatExcel/obj/Debug
