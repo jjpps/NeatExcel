@@ -5,7 +5,8 @@ Excel Reader Dll
 ### Como Escrever
 
 ```
- DataTable table = new DataTable();
+Excel excel = new Excel();
+DataTable table = new DataTable();
 table.Columns.Add("Dosage", typeof(int));
 table.Columns.Add("Drug", typeof(string));
 table.Columns.Add("Patient", typeof(string));
@@ -18,16 +19,20 @@ table.Rows.Add(10, "Hydralazine", "Christoff", DateTime.Now);
 table.Rows.Add(21, "Combivent", "Janet", DateTime.Now);
 table.Rows.Add(100, "Dilantin", "Melanie", DateTime.Now);
 
+DataSet ds = new DataSet();
+ds.Tables.Add(table);
+excel.WriteXLSX(ds, $"{path}\\Arquivo.xlsx");
+
 ```
 ### Como Ler
 ```
 
 Excel excel = new Excel();
 var excelLoaded = excel.LoadXLS(path);
- foreach (DataRow dr in excelLoaded.Tables[1].Rows)
+foreach (DataRow dr in excelLoaded.Tables[1].Rows)
 {
-    dr["ID_TIPOAJUSTE"].ToString()
-    //sw.WriteLine($"{item}");
+   dr["ID_TIPOAJUSTE"].ToString()
+   //sw.WriteLine($"{item}");
 }
 
 ```
