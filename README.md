@@ -1,7 +1,7 @@
 # NeatExcel
 
 
-### Como Escrever
+### How To Write
 
 ```
 Excel excel = new Excel();
@@ -20,18 +20,17 @@ table.Rows.Add(100, "Dilantin", "Melanie", DateTime.Now);
 
 DataSet ds = new DataSet();
 ds.Tables.Add(table);
-excel.WriteXLSX(ds, $"{path}\\Arquivo.xlsx");
+excel.WriteXLSX(ds, $"{path}\\fileName.xlsx");
 
 ```
-### Como Ler
+### How To Read
 ```
 
 Excel excel = new Excel();
 var excelLoaded = excel.LoadXLS(path);
 foreach (DataRow dr in excelLoaded.Tables[1].Rows)
 {
-   dr["ID_TIPOAJUSTE"].ToString()
-   //sw.WriteLine($"{item}");
+   Console.WriteLine(dr["columnName"].ToString());
 }
 
 ```
